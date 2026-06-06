@@ -65,7 +65,7 @@ export default function HistoryPage() {
         {history.map((s) => {
           const isExp = expanded === s.id
           const totalVol = Math.round(s.totalVolume)
-          const muscleGroups = [...new Set(s.exercises.map((e) => e.exercise.muscleGroup))]
+          const muscleGroups = Array.from(new Set(s.exercises.map((e) => e.exercise.muscleGroup)))
 
           return (
             <div
