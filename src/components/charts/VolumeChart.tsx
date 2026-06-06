@@ -13,33 +13,10 @@ interface VolumeChartProps {
   height?: number
 }
 
-const CustomBar = (props: {
-  x?: number; y?: number; width?: number; height?: number
-  fill?: string; index?: number; dataLength?: number
-}) => {
-  const { x = 0, y = 0, width = 0, height = 0, fill = '#06D6E8', index = 0, dataLength = 1 } = props
-  const isLast = index === dataLength - 1
-  const radius = 4
-  return (
-    <g>
-      {/* glow */}
-      {isLast && (
-        <rect
-          x={x - 2} y={y - 2} width={width + 4} height={height + 2}
-          fill={fill} rx={radius} opacity={0.12}
-          filter="blur(4px)"
-        />
-      )}
-      <path
-        d={`M${x + radius},${y} h${width - radius * 2} a${radius},${radius} 0 0 1 ${radius},${radius} v${height - radius} h-${width} v-${height - radius} a${radius},${radius} 0 0 1 ${radius},-${radius} z`}
-        fill={isLast ? fill : `${fill}80`}
-      />
-    </g>
-  )
-}
-
 const CustomTooltip = ({ active, payload, label }: {
-  active?: boolean; payload?: { value: number }[]; label?: string
+  active?: boolean
+  payload?: Array<{ value: number }>
+  label?: string
 }) => {
   if (!active || !payload?.length) return null
   return (
@@ -78,7 +55,7 @@ export default function VolumeChart({ sessions, height = 140 }: VolumeChartProps
           axisLine={false} tickLine={false}
         />
         <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(255,255,255,0.03)', radius: 4 }} />
-        <Bar dataKey="volume" radius={[4,4,0,0]} isAnimationActive>
+        <Bar dataKey="volume" radius={[4, 4, 0, 0]} isAnimationActive>
           {data.map((_, i) => (
             <Cell
               key={i}

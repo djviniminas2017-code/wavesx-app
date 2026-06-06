@@ -9,7 +9,7 @@ import {
   ResponsiveContainer,
   CartesianGrid,
 } from 'recharts'
-import { format, parseISO, startOfWeek, getISOWeek } from 'date-fns'
+import { format, parseISO, startOfWeek } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 import type { WorkoutSession } from '@/types/workout'
 

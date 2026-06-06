@@ -58,7 +58,7 @@ export default function ProfilePage() {
     height: user.height || '',
     weight: user.weight || '',
     age: user.age || '',
-    gender: user.gender || '' as Gender | '',
+    gender: (user.gender || '') as Gender | '',
     activityLevel: user.activityLevel,
     fitnessGoal: user.fitnessGoal,
   })
@@ -457,7 +457,7 @@ export default function ProfilePage() {
             <div className="bg-card border border-white/[0.07] rounded-2xl p-4">
               <p className="text-xs text-t3 uppercase tracking-widest mb-2">Unidade de peso nos treinos</p>
               <div className="flex gap-2">
-                {(['kg', 'lb'] as const).map(u => (
+                {(['kg', 'lbs'] as const).map(u => (
                   <button key={u} onClick={() => prefs.setWeightUnit(u)}
                     className={`px-5 py-2 rounded-xl font-bold text-sm transition-all ${prefs.weightUnit === u ? 'bg-cyan text-bg' : 'bg-card2 border border-white/[0.07] text-t2'}`}>
                     {u}

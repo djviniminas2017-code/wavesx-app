@@ -14,9 +14,9 @@ export default function ProgressPage() {
   const { history } = useWorkoutStore()
   const { weightUnit } = usePreferencesStore()
 
-  const allExerciseNames = [
-    ...new Set(history.flatMap((s) => s.exercises.map((e) => e.exercise.name))),
-  ].sort()
+  const allExerciseNames = Array.from(
+    new Set(history.flatMap((s) => s.exercises.map((e) => e.exercise.name)))
+  ).sort()
 
   const [selectedExercise, setSelectedExercise] = useState(allExerciseNames[0] ?? '')
 
