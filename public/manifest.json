@@ -1,0 +1,26 @@
+{
+  "name": "waveSX — surf & treino",
+  "short_name": "waveSX",
+  "description": "Treine como atleta. Surfe como profissional.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#060810",
+  "theme_color": "#060810",
+  "categories": ["sports", "fitness", "lifestyle"],
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
